@@ -26,7 +26,7 @@ namespace Mango.Services.CouponAPI.Controllers
         {
             try
             {
-                IEnumerable<Coupon> objList = _db.Coupons.ToList();
+                IEnumerable<Coupon> objList = [.. _db.Coupons];
                 _response.Result = _mapper.Map<IEnumerable<CouponDto>>(objList);
             }
             catch (Exception ex)
@@ -61,7 +61,7 @@ namespace Mango.Services.CouponAPI.Controllers
         {
             try
             {
-                Coupon obj = _db.Coupons.First(c => !string.IsNullOrWhiteSpace(c.CouponCode) && c.CouponCode.ToLower() == code.ToLower());
+                Coupon obj = _db.Coupons.First(c => !string.IsNullOrWhiteSpace(c.CouponCode) && c.CouponCode.Equals(code, StringComparison.CurrentCultureIgnoreCase));
 
                 _response.Result = _mapper.Map<CouponDto>(obj);
 
