@@ -12,7 +12,6 @@ builder.Services.AddHttpClient <ICouponService, CouponService>();
 StaticDetails.CouponAPIBase = builder.Configuration["ServiceUrls:CouponAPI"] ?? "";
 
 
-//builder.Services.AddScoped<IBaseService, BaseService>(); TODO: Check if needed
 builder.Services.AddScoped<ICouponService, CouponService>();
 
 var app = builder.Build();

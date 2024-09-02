@@ -9,7 +9,7 @@ using static Mango.Web.Utility.StaticDetails;
 
 namespace Mango.Web.Service
 {
-    public class BaseService : IBaseService
+    public abstract class BaseService
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
